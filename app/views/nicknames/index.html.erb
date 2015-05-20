@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<% if params[:person] %>
+  <%= image_tag(@person['photoUrl']) %>
+  <h2><%= @nickname.generated_name %> </h2>
+<% else %>
+  <%= form_for :person, url: nicknames_path, method: :get do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br />
+    <%= f.submit %>
+  <% end %>
+<% end %>
